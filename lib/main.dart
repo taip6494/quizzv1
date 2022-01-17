@@ -21,12 +21,14 @@ class body extends State<MyApp> {
   final check = Icon(Icons.check, color: Colors.green);
   final close = Icon(Icons.close, color: Colors.red);
   List<Icon> iconsList = [];
+  var question = ["Le piton des neiges est un volcan de la Réunion ?","Flutter permet de faire des applications web également ?","Php est le language utilisé par Flutter ?"];
 
   void ajoutItems(icones){
     setState(() {
       iconsList.add(icones);
     });
   }
+
   @override
 
   Widget build(BuildContext context) {
@@ -40,8 +42,8 @@ class body extends State<MyApp> {
               padding: const EdgeInsets.all(10.0),
               child: Center(
                 child: Text(
-                  'Ceci est une question',
-                  style: TextStyle(fontSize: 25),
+                  (question[1]),
+                  style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
             ),
