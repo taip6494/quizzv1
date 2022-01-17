@@ -18,7 +18,11 @@ class MyApp extends StatefulWidget {
 }
 
 class body extends State<MyApp> {
+  final check = Icon(Icons.check, color: Colors.green);
+  final close = Icon(Icons.close, color: Colors.red);
+  List<Icon> iconsList = [];
   @override
+
   Widget build(BuildContext context) {
     return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -76,10 +80,8 @@ class body extends State<MyApp> {
             ),
           ),
           Row(
-            children:[
-              Icon(Icons.check, color: Colors.green),
-              Icon(Icons.clear, color: Colors.red),
-            ]
+            children:
+              iconsList,
           )
         ]
     );
