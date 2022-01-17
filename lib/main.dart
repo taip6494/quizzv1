@@ -21,6 +21,12 @@ class body extends State<MyApp> {
   final check = Icon(Icons.check, color: Colors.green);
   final close = Icon(Icons.close, color: Colors.red);
   List<Icon> iconsList = [];
+
+  void ajoutItems(icones){
+    setState(() {
+      iconsList.add(icones);
+    });
+  }
   @override
 
   Widget build(BuildContext context) {
@@ -54,6 +60,7 @@ class body extends State<MyApp> {
                         onPrimary: Colors.white,
                       ),
                       onPressed: () {
+                        ajoutItems(check);
                       }
 
                   )
@@ -74,6 +81,7 @@ class body extends State<MyApp> {
                       onPrimary: Colors.white,
                     ),
                     onPressed: () {
+                      ajoutItems(close);
                     },
                   )
               ),
