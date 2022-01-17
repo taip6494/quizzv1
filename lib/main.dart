@@ -22,7 +22,7 @@ class body extends State<MyApp> {
   final close = Icon(Icons.close, color: Colors.red);
   List<Icon> iconsList = [];
   var question = ["Le piton des neiges est un volcan de la Réunion ?","Flutter permet de faire des applications web également ?","Php est le language utilisé par Flutter ?"];
-
+  int numberquestion = 0;
   void ajoutItems(icones){
     setState(() {
       iconsList.add(icones);
@@ -42,7 +42,8 @@ class body extends State<MyApp> {
               padding: const EdgeInsets.all(10.0),
               child: Center(
                 child: Text(
-                  (question[1]),
+
+                  (question[numberquestion]),
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
@@ -62,6 +63,7 @@ class body extends State<MyApp> {
                         onPrimary: Colors.white,
                       ),
                       onPressed: () {
+                      if (numberquestion < question.length - 1) numberquestion++;
                         ajoutItems(check);
                       }
 
@@ -83,6 +85,7 @@ class body extends State<MyApp> {
                       onPrimary: Colors.white,
                     ),
                     onPressed: () {
+                      if (numberquestion < question.length - 1) numberquestion++;
                       ajoutItems(close);
                     },
                   )
@@ -96,4 +99,5 @@ class body extends State<MyApp> {
         ]
     );
   }
+
 }
