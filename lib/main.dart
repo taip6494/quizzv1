@@ -75,6 +75,12 @@ class body extends State<MyApp> {
               ),
             ),
           ),
+          Row(
+            children:[
+              Icon(Icons.check, color: Colors.green),
+              Icon(Icons.clear, color: Colors.red),
+            ]
+          )
         ]
     );
   }
