@@ -31,6 +31,25 @@ class body extends State<MyApp> {
     });
   }
 
+  void checkAnswer(bool reponseutilisateur) {
+    bool correctAnswer = quizBrain.getQuestionAnswer();
+
+    setState(() {
+      if (reponseutilisateur == correctAnswer) {
+        iconsList.add(Icon(
+          Icons.check,
+          color: Colors.green,
+        ));
+      } else {
+        iconsList.add(Icon(
+          Icons.close,
+          color: Colors.red,
+        ));
+      }
+      quizBrain.nextQuestion();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
@@ -59,15 +78,8 @@ class body extends State<MyApp> {
                 onPrimary: Colors.white,
               ),
               onPressed: () {
-                bool bonnereponse = reponses[numberquestion];
-                if (iconsList.length != question.length) {
-                  if (bonnereponse == true) {
-                    ajoutItems(check);
-                  } else {
-                    ajoutItems(close);
-                  }
-                  quizBrain.nextQuestion();
-                }
+                checkAnswer(true);
+                quizBrain.nextQuestion();
               })),
         ),
       ),
@@ -84,15 +96,8 @@ class body extends State<MyApp> {
                 onPrimary: Colors.white,
               ),
               onPressed: () {
-                bool bonnereponse = reponses[numberquestion];
-                if (iconsList.length != question.length) {
-                  if (bonnereponse == true) {
-                    ajoutItems(close);
-                  } else {
-                    ajoutItems(check);
-                  }
-                  quizBrain.nextQuestion();
-                }
+                checkAnswer(false);
+                quizBrain.nextQuestion();
               })),
         ),
       ),

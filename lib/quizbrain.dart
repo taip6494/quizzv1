@@ -5,8 +5,8 @@ class QuizBrain {
 
   List<Question> _questionsListe = [
     Question('Le piton des neiges est un volcan de la Réunion ?', true),
-    Question('Le piton des neiges est un volcan de la Réunion ?', false),
-    Question('Le piton des neiges est un volcan de la Réunion ?', true),
+    Question('Flutter permet de faire des applications web également ?', false),
+    Question('Php est le language utilisé par Flutter ?', true),
   ];
 
   bool getQuestionAnswer() {
