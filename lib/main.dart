@@ -66,7 +66,7 @@ class body extends State<MyApp> {
                   } else {
                     ajoutItems(close);
                   }
-                  quizbrain.nextQuestion();
+                  quizBrain.nextQuestion();
                 }
               })),
         ),
@@ -91,7 +91,7 @@ class body extends State<MyApp> {
                   } else {
                     ajoutItems(check);
                   }
-                  if (numberquestion < question.length - 1) numberquestion++;
+                  quizBrain.nextQuestion();
                 }
               })),
         ),

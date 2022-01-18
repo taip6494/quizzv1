@@ -16,4 +16,8 @@ class QuizBrain {
   String getQuestionText() {
     return _questionsListe[_numberquestion].questionText;
   }
+
+  void nextQuestion() {
+    if (_numberquestion < _questionsListe.length - 1) _numberquestion++;
+  }
 }
