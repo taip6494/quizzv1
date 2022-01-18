@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizzv1/quizbrain.dart';
 
 void main() {
   return runApp(
@@ -17,25 +18,10 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => body();
 }
 
-class MesQuestion {
-  String question;
-  bool reponseCorrect;
-  MesQuestion(this.question, this.reponseCorrect);
-}
-
 class body extends State<MyApp> {
   final check = Icon(Icons.check, color: Colors.green);
   final close = Icon(Icons.close, color: Colors.red);
   List<Icon> iconsList = [];
-  final List<MesQuestion> questionsListe = [
-    MesQuestion('Le piton des neiges est un volcan de la Réunion ?', true),
-    MesQuestion(
-        'Flutter permet de faire des applications web également ?', false),
-    MesQuestion('Php est le language utilisé par Flutter ?', true),
-    MesQuestion('Qu est ce que Etienne est un bon formateur ?', true),
-    MesQuestion(
-        'Est ce que flutter est un bon langage de programmation?', true),
-  ];
   int numberquestion = 0;
 
   void ajoutItems(icones) {
@@ -53,7 +39,7 @@ class body extends State<MyApp> {
           padding: const EdgeInsets.all(10.0),
           child: Center(
             child: Text(
-              (question[numberquestion]),
+              questionsListe[numberquestion].question,
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
           ),
