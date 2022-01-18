@@ -17,17 +17,26 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => body();
 }
 
+class MesQuestion {
+  String question;
+  bool reponseCorrect;
+  MesQuestion(this.question, this.reponseCorrect);
+}
+
 class body extends State<MyApp> {
   final check = Icon(Icons.check, color: Colors.green);
   final close = Icon(Icons.close, color: Colors.red);
   List<Icon> iconsList = [];
-  var question = [
-    "Le piton des neiges est un volcan de la Réunion ?",
-    "Flutter permet de faire des applications web également ?",
-    "Php est le language utilisé par Flutter ?"
+  final List<MesQuestion> questionsListe = [
+    MesQuestion('Le piton des neiges est un volcan de la Réunion ?', true),
+    MesQuestion(
+        'Flutter permet de faire des applications web également ?', false),
+    MesQuestion('Php est le language utilisé par Flutter ?', true),
+    MesQuestion('Qu est ce que Etienne est un bon formateur ?', true),
+    MesQuestion(
+        'Est ce que flutter est un bon langage de programmation?', true),
   ];
   int numberquestion = 0;
-  List<bool> reponses = [true, false, true];
 
   void ajoutItems(icones) {
     setState(() {
