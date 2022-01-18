@@ -64,12 +64,14 @@ class body extends State<MyApp> {
               ),
               onPressed: () {
                 bool bonnereponse = reponses[numberquestion];
-                if (bonnereponse == true) {
-                  ajoutItems(check);
-                } else {
-                  ajoutItems(close);
+                if (iconsList.length != question.length) {
+                  if (bonnereponse == true) {
+                    ajoutItems(check);
+                  } else {
+                    ajoutItems(close);
+                  }
+                  if (numberquestion < question.length - 1) numberquestion++;
                 }
-                numberquestion++;
               })),
         ),
       ),
@@ -87,12 +89,14 @@ class body extends State<MyApp> {
               ),
               onPressed: () {
                 bool bonnereponse = reponses[numberquestion];
-                if (bonnereponse == true) {
-                  ajoutItems(close);
-                } else {
-                  ajoutItems(check);
+                if (iconsList.length != question.length) {
+                  if (bonnereponse == true) {
+                    ajoutItems(close);
+                  } else {
+                    ajoutItems(check);
+                  }
+                  if (numberquestion < question.length - 1) numberquestion++;
                 }
-                numberquestion++;
               })),
         ),
       ),
