@@ -1,8 +1,9 @@
 class MesQuestion {
+  int _numberquestion = 0;
   String question;
   bool reponseCorrect;
   MesQuestion(this.question, this.reponseCorrect);
-  final List<MesQuestion> questionsListe = [
+  final List<MesQuestion> _questionsListe = [
     MesQuestion('Le piton des neiges est un volcan de la Réunion ?', true),
     MesQuestion(
         'Flutter permet de faire des applications web également ?', false),
@@ -11,4 +12,12 @@ class MesQuestion {
     MesQuestion(
         'Est ce que flutter est un bon langage de programmation?', true),
   ];
+
+  bool getQuestionAnswer() {
+    return _questionsListe[_numberquestion].reponseCorrect;
+  }
+
+  String getQuestionText() {
+    return _questionsListe[_numberquestion].question;
+  }
 }

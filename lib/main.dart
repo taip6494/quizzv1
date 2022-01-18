@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quizzv1/quizbrain.dart';
+import 'quizbrain.dart';
+
+MesQuestion quizBrain = MesQuestion();
 
 void main() {
   return runApp(
@@ -22,7 +24,6 @@ class body extends State<MyApp> {
   final check = Icon(Icons.check, color: Colors.green);
   final close = Icon(Icons.close, color: Colors.red);
   List<Icon> iconsList = [];
-  int numberquestion = 0;
 
   void ajoutItems(icones) {
     setState(() {
@@ -39,7 +40,7 @@ class body extends State<MyApp> {
           padding: const EdgeInsets.all(10.0),
           child: Center(
             child: Text(
-              questionsListe[numberquestion].question,
+              quizBrain.getQuestionText(),
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
           ),
@@ -65,7 +66,7 @@ class body extends State<MyApp> {
                   } else {
                     ajoutItems(close);
                   }
-                  if (numberquestion < question.length - 1) numberquestion++;
+                  quizbrain.nextQuestion();
                 }
               })),
         ),
