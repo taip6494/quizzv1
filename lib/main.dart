@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'quizbrain.dart';
 
 QuizBrain quizBrain = QuizBrain();
@@ -35,18 +36,43 @@ class body extends State<MyApp> {
     bool correctAnswer = quizBrain.getQuestionAnswer();
 
     setState(() {
-      if (reponseutilisateur == correctAnswer) {
-        iconsList.add(Icon(
-          Icons.check,
-          color: Colors.green,
-        ));
+      if (quizBrain.isFinished() == true) {
+        Alert(
+          context: context,
+          title: "Parti Fini!",
+          desc: "Votre parti est fini",
+          buttons: [
+            DialogButton(
+              child: Text(
+                "C'est top",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+              onPressed: () => Navigator.pop(context),
+              width: 120,
+            )
+          ],
+        ).show();
+        quizBrain.reset();
+        iconsList = [];
       } else {
-        iconsList.add(Icon(
-          Icons.close,
-          color: Colors.red,
-        ));
+        if (reponseutilisateur == correctAnswer) {
+          iconsList.add(
+            Icon(
+              Icons.check,
+              color: Colors.green,
+            ),
+          );
+        } else {
+          iconsList.add(
+            Icon(
+              Icons.close,
+              color: Colors.red,
+            ),
+          );
+        }
+
+        quizBrain.nextQuestion();
       }
-      quizBrain.nextQuestion();
     });
   }
 
@@ -79,7 +105,6 @@ class body extends State<MyApp> {
               ),
               onPressed: () {
                 checkAnswer(true);
-                quizBrain.nextQuestion();
               })),
         ),
       ),
@@ -97,7 +122,6 @@ class body extends State<MyApp> {
               ),
               onPressed: () {
                 checkAnswer(false);
-                quizBrain.nextQuestion();
               })),
         ),
       ),

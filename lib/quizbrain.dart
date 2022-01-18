@@ -20,4 +20,17 @@ class QuizBrain {
   void nextQuestion() {
     if (_numberquestion < _questionsListe.length - 1) _numberquestion++;
   }
+
+  bool isFinished() {
+    if (_numberquestion >= _questionsListe.length - 1) {
+      print('retourne vrai');
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void reset() {
+    _numberquestion = 0;
+  }
 }
