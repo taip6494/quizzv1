@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'quizbrain.dart';
 
-MesQuestion quizBrain = MesQuestion();
+QuizBrain quizBrain = QuizBrain();
 
 void main() {
   return runApp(

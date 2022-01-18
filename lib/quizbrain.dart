@@ -1,23 +1,19 @@
-class MesQuestion {
+import 'question.dart';
+
+class QuizBrain {
   int _numberquestion = 0;
-  String question;
-  bool reponseCorrect;
-  MesQuestion(this.question, this.reponseCorrect);
-  final List<MesQuestion> _questionsListe = [
-    MesQuestion('Le piton des neiges est un volcan de la Réunion ?', true),
-    MesQuestion(
-        'Flutter permet de faire des applications web également ?', false),
-    MesQuestion('Php est le language utilisé par Flutter ?', true),
-    MesQuestion('Qu est ce que Etienne est un bon formateur ?', true),
-    MesQuestion(
-        'Est ce que flutter est un bon langage de programmation?', true),
+
+  List<Question> _questionsListe = [
+    Question('Le piton des neiges est un volcan de la Réunion ?', true),
+    Question('Le piton des neiges est un volcan de la Réunion ?', false),
+    Question('Le piton des neiges est un volcan de la Réunion ?', true),
   ];
 
   bool getQuestionAnswer() {
-    return _questionsListe[_numberquestion].reponseCorrect;
+    return _questionsListe[_numberquestion].questionAnswer;
   }
 
   String getQuestionText() {
-    return _questionsListe[_numberquestion].question;
+    return _questionsListe[_numberquestion].questionText;
   }
 }
